@@ -8,7 +8,7 @@ Intentions: Provide a platform for people to share their knowledge and experienc
 Keywords: 'Home, Zer0'
 Description: This is an overall outline where you can start.
 Post: null
-lastmod: '2021-12-05T18:22:36.602Z'
+lastmod: '2021-12-10T22:07:07.937Z'
 toc: true
 sidebar:
   nav: main
@@ -42,7 +42,7 @@ For those who are already familiar with core IT concepts, this the quick start g
 
 #### Top Navigation Bar
 
-![](/assets/images/top-nav.png)
+![](../assets/images/top-nav.png)
 
 This is a fixed navigation bar that is always visible at the top of the page. It is a horizontal bar that contains links to the different sections of the site. The links are organized into three sections:
 
