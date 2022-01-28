@@ -1,86 +1,113 @@
 ---
 Title: IT-Journey
 Author: bamr87
-layout: default
-permalink: /home/
-Motive: I want to help my community to learn more about IT.
-Intentions: Provide a platform for people to share their knowledge and experience about IT.
-Keywords: 'Home, Zer0'
 Description: This is an overall outline where you can start.
+permalink: /home/
+purpose: To provide a platform for people to share their knowledge and experience about IT.
+Keywords: 'Home, Zer0'
 Post: null
-lastmod: '2021-12-10T22:07:07.937Z'
+lastmod: '2022-01-12T20:23:07.289Z'
 toc: true
 sidebar:
   nav: main
 ---
 
-<!-- TODO:
-- [x] Build Jekyll Layout
-- [ ] Automate build process
-- [ ] finish building the outline
-- [ ] Add index link to jekyll for it-journey 
-- [ ] Build Site map page
-- [ ] Publish training article on [Programming Historian](https://programminghistorian.org/) 
-- [X] Expand with open source colab to leverage the community
-- [x]   Goal to cater to everyone's need
-- [ ]   Publish manifesto article
--->
+test again
 
-# it-journey.home
+# it-journey.home (~)
 
-This is the starting point, midpoint, but never the endpoint. This is the place where we return after getting lost or wandering off. Think of this as our home base with a collection of maps, tools, and information we need to traverse through this chaotic digital world. There are journals to capture our experiences and findings, notes to quickly reference when our memories fail, and a library of documentation that gives us the depth of knowledge to build upon and share. Everything here is open source and free to use, and the goal is to make this repository a comprehensive learning tool for everyone to use.
+This is where we begin our journey. The place where we return after getting lost or wandering off.
+Think of this as our home base with a collection of maps, tools, and information we need to traverse through this chaotic digital world.
+There are journals to capture our experiences and findings, notes to quickly reference when our memories fail, and a library of documentation that gives us the depth of knowledge to build upon and share.
+Everything here is open source and free to use, and the goal is to make this repository a comprehensive learning tool for everyone to use and share.
 
 ## Abstract
+{: .para-one #abstract}
 
-From zero to hero collection of docs, tools, scripts, walk-throughs, and information to help with your IT journey.
+From zero to hero collection of docs, tools, scripts, walk-through, and information to help with your IT journey.
+
+## Roadmap
+
+Here are a few routes:
+
+### Zer0 to Her0
+
+For those who prefer the route based on difficulty:
+
+1. Foundations - 0000
+2. Intermediate - 0001
+3. Advanced - 0011
+4. Expert - 0111
+5. Heroic - 1111
+
+### Stack Attack
+
+For those who are intermediate/advanced and want to attack a specific stack:
+
+1. Front-end (HTML, CSS, JS)
+2. Back-end (Python, PHP, Ruby, Command Line)
+3. Databases (MySQL, NoSQL, PostgreSQL)
+4. Integrations (API, REST, GraphQL, SOAP)
+5. Infrastructure (AWS, Azure, GCP, Linux)
+6. Solutions (LAMP, Jampstack, MERN, WINS)
+
+[Source](https://devopedia.org/full-stack-developer)
+
+### Specialization route
+
+For those who are advanced/expert and what to specialize in a field:
+
+1. Infrastructure (System Administration, Networking, Operating Systems)
+2. DevOps (Source Code control, CD/CI, Automated Testing, Agile Development)
+3. Web Design (HTML, CSS, JavaScript, Jekyll, Bootstrap)
+4. Software Engineering (Python, Ruby, Java, C#, C++)
+5. Data Science (SQL, BI, Hadoop, Spark, HBase, Hive, Kafka, Cassandra)
+6. Cyber Security (Firewalls, Metadata analysis, Network Penetration, Ransomware, Vulnerability, Exploits, Malware)
+7. Multimedia/Graphic Design (GIMP, Blender, Inkscape, Krita, Pencil 2D)
+8. Mobile Development (Android, iOS, React Native)
+9. Game Development (Unity, Unreal Engine)
+10. AI (Machine Learning, Deep Learning, Natural Language Processing)
+
+### Project Route
+
+1. Wikimedia Server - [Downloads](https://www.mediawiki.org/wiki/Download)
+2. Personal Website
+3. Retro Picade
+4. Mobile App
+5. Web Scraper
+6. Documentation Site
+7. Video game
 
 ## Quick Start
 
-For those who are already familiar with core IT concepts, this the quick start guide to get you going. There are some prerequisites listed before you can clone this repository. Each is linked to a detailed installation instruction.
+For those who are already familiar with core IT concepts, this is the quick start guide to get you going. There are some prerequisites listed before you can clone this repository. Each is linked to a detailed installation instruction.
+
+Machine Setup [Local link](\_quickstart\machine-setup.md)  Or [Web link](\quickstart\machine-setup\)
+
+Integrated Development Environment (Visual Studio Code) [Local link](\_quickstart\vscode.md)  Or [Web link](\quickstart\vscode\)
+
+Static Website Generator (Jekyll) [Local link](\_quickstart\Jekyll.md)  Or [Web link](\quickstart\Jekyll\)
 
 ### Site layout
 
 #### Top Navigation Bar
 
-![](../assets/images/top-nav.png)
+![](../assets/images/top-nav.png){: .img-fluid }
 
 This is a fixed navigation bar that is always visible at the top of the page. It is a horizontal bar that contains links to the different sections of the site. The links are organized into three sections:
 
-- [Journals](#journals)
-- [Library](#Library)
-- [Notes](#Notes)
+- [Journals](/posts/)
+- [Library](/docs/)
+- [Notes](/Notes/)
 
 #### Sidebar Navigation
 
 The sidebar navigation is a vertical bar that is always visible on the left side of the page. It is automatically generated based on the navigation YAML file under ../_data/navigation.yml.
 
+[Including](https://jekyllrb.com/docs/includes/) a [truncated](https://shopify.github.io/liquid/filters/truncate/) navigation YAML file under the `_data` folder will automatically generate the sidebar and top navigation.
+
 ```yaml
-main:
-  - nav-title: "Main Menu"
-  - title: "Home"
-    url: /home/
-  - title: "Journal"
-    url: /posts/
-  - title: "Library"
-    url: /docs/
-    sublinks:
-    - title: "Jekyll"
-      url: /docs/jekyll/
-    - title: "Command Line"
-      url: /docs/command-line/
-  - title: "Notes"
-    url: /notes/
-    sublinks:
-    - title: "home"
-      url: /notes/
-    - title: "shell"
-      url: /notes/shell/    
-    - title: "Javascript"
-      url: /notes/js/
-    - title: "Jekyll"
-      url: /notes/jekyll/
-  - title: "About"
-    url: /about/
+{% capture nav %}{% include_relative _data/navigation.yml %}{% endcapture %}{{ nav | truncate: 332 }}
 ```
 
 #### Table Of Contents right sidebar
@@ -94,72 +121,31 @@ It is based on the heading tags in the markdown file. The table of contents is g
 Above the right TOC, there is a short cut to the source code. This is a link to the GitHub repository. The link to the shortcut is based on the config file located under /_config.yml. This is the where you have forked this repository.
 
 ```yaml
-repository               : "bamr87/it-journey" # GitHub username/repo-name 
+repository               : "bamr87/it-journey" # GitHub username/repo-name
 local_repo               : "it-journey"
-local_git_pc             : "C:/Users/AmrAbdel-Motaleb/OneDrive/Documents/GitHub/"
-local_git_mac            : "/Users/amr-mb/OneDrive/Documents/GitHub/"
+home_dir_pc              : &home-win '$HOME'
+home_dir_mac             : &home-mac '$HOME'
+local_git_pc             : [ *home-win, 'github\' ]
+local_git_mac            : [ *home-mac, 'GitHub/' ]
 ```
 
-### [Prerequisites](#prerequisites)
-
-The best way to build the
-In order to build this repository and contribute, you need the following applications installed:
-
-- [VS Code](/posts/qs-vscode/)
-- Github
-- Ruby
-- Jekyll
-
-### [Installation](#installation)
-
-```bash
-cd ~/github/
-gh clone bamr87/it-journey
-```
-### Features
-
-- [x] Code Copy button
-- [x] Side table of contents
-- [x] Add quick edit links to GitHub and VS Code
-- [x] Dark Mode toggle
-  - [ ] [JTD](https://pmarsceill.github.io/just-the-docs/docs/customization/)
-- [x] Navigation bar dropdown
-- [x] auto genereate sidebar
-- [ ] alternate TOC structures (easy/med/hard) (pc/mac/linux) (by role)
-- [ ] Tool box page
-- [ ] Contribution Instructions
-- [ ] Search engine
-- [x] Programming Language cheat sheets
-- [x] Accordion TOC
-- [x] bootstrap4
-- [x] auto navbar 
-  - [ ] [Just the Docs](https://pmarsceill.github.io/just-the-docs/docs/navigation-structure/)
-- [ ] Add back to [top button](https://jun711.github.io/web/how-to-highlight-code-on-a-Jekyll-site-syntax-highlighting/) in cellphone view
-- [ ] add [plugins](https://jekyllcodex.org/without-plugins/) without plugins
-- [ ] Auto integrate/embed source code files into documentation
-- [ ] UI testing automation - [Selenium](https://www.selenium.dev/)
-- [ ] code snippet syntax [highlighting](https://jun711.github.io/web/how-to-highlight-code-on-a-Jekyll-site-syntax-highlighting/) 
-- [ ] page revision view (diff)
-
-[Java Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-
-Edit in [VSCode](vscode://file/C:/Users/AmrAbdel-Motaleb/OneDrive/Documents/GitHub/{{ page.path}})
-
-this page's path is {{ page.path}}
-
+NOTE: Replace `$HOME` with your home directory. Normally, it is the user id of the machine. Just type `echo $HOME` in the terminal.
+{: .alert .alert-primary }
 
 ## /init_world
 
-```bash
+Choose your World:
+
 - Win - [pshero](it-journey-docs/notes/init-world/pshero.ipynb)
-  - POLR
 - Mac - [machero]
 - Linux - [bashero]
 - Cloud - [chero]
 
 ### Hello-World
 
-### Paths
+- Build your base
+- Upgrade
+- Extend
 
 - Command and Conquer - CNC
   - PowerShell
@@ -190,10 +176,6 @@ this page's path is {{ page.path}}
 - Dr. Jekyll & Mr. Hub - DJMH
   - [examples](https://github.com/collections/github-pages-examples)
 
-## Journal
-
-<!-- TODO: Eventually, the only way to overcome these challenges is to leverage the community for help evolving the system to cater to everyone's needs. -->
-
 ## Level zer0   - 0000 - Navigation/Foundation
 
 ### RTD - Read the docs
@@ -219,29 +201,6 @@ this page's path is {{ page.path}}
 
 Jekyll is a static site generator that is used to generate static websites.
 
-```liquid
-{% raw %}
-{{site.github.repository_url}}
-{% endraw %}
-```
-
-```html
-{%raw %}
-<div class="sidebar__top">
-  <a href="'''liquid{{site.github.repository_url}}'''/blob/gh-pages/{{page.name}}">
-    <i class="fab fa-github-square"></i>
-  </a>
-  <a href="vscode://file{{ site.local_git_pc}}/{{ site.local_repo }}/{{ page.path }}">
-    <i class="fas fa-laptop-code"></i>
-  </a>
-  <a href="vscode://file{{ site.local_git_mac}}/{{ site.local_repo }}/{{ page.path }}">
-    <i class="fas fa-laptop-code"></i>
-  </a>
-  <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
-</div>
-{% endraw %}
-```
-
 ### MTD - Make the docs
 
 [MkDocs](https://www.mkdocs.org/)
@@ -251,6 +210,12 @@ Jekyll is a static site generator that is used to generate static websites.
 ## Level 0n3    - 0001 - Basic building blocks
 
 ### Web building
+
+Responsive Design
+- [Tailwind](https://tailwindcss.com/docs/installation)
+- [Bootstrap](https://getbootstrap.com/)
+
+- [Comparison](https://blog.logrocket.com/tailwind-css-vs-bootstrap-ui-kits/)
 
 ### Infrastructure
 
@@ -266,117 +231,10 @@ Jekyll is a static site generator that is used to generate static websites.
 
 ## Level s1x    - 0110 - Data basics
 
-## Level s3v3n  - 0111 - Web Development
+## Level s3v3n  - 0111 -
 
 ## Level 31ght  - 1000 - Security
 
 ## Level n1n3   - 1001 - Cloud
 
 ## Level t3n    - 1010 - Borne Again Solutions Hero
-
-### Automate OS Install
-
-[win](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-automation-overview)
-
-## Tools and Equipment
-
-### Terminal
-
-#### Powershell
-
-[operators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.1)
-
-[sub-expression](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7.1#subexpression-operator--)
-
-```powershell
-"Today is $(Get-Date)"
-```
-
-> Today is 12/02/2019 13:15:20
-
-```powershell
-"Folder list: $((dir c:\ -dir).Name -join ', ')"
-```
-
-> Folder list: Program Files, Program Files (x86), Users, Windows
-
-### Bash
-
-### Iterm
-
-## Package Management
-
-- winget
-- apt-get
-- homebrew
-
-## Text_Editor
-
-- atom
-- Notepad++
-- xml Notepad
-- Visual Studio Code
-- [LaTeX](https://en.wikibooks.org/wiki/LaTeX)
-
-## DevOps
-
-### Source_Code
-
-- Gitlab
-- OneDrive
-
-## IT Stack
-
-### Infrastructure stack
-
-### Security
-
-### Web/App Development
-
-### Networking
-
-- DNS
-- Authentication
-- VPN
-- Sub-Nets
-- Ports
-- HTTPS
-
-## Development Areas
-
-### Graphic Design - gdsn
-
-1. GIMP
-2. Inkscape
-3. Blender
-4. Krita
-5. Pencil 2D
-
-## #Data_analysis
-
-- Database admin
-- Data analytics
-
-## Devops
-
-### CI/CD
-
-### System Administration
-
-### Documentation
-
-- wordpress
-- mkdocs
-- jekyll
-- Pandoc
-- Github Pages
-- Docusaurus
-
-### Colaboration
-
-- Jupyter Notebooks
-- Github
-- Jekyll
-
-> this is a quote
- 

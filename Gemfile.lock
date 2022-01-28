@@ -3,6 +3,12 @@ GEM
   specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    algolia_html_extractor (2.6.4)
+      json (~> 2.0)
+      nokogiri (~> 1.10)
+    algoliasearch (1.27.5)
+      httpclient (~> 2.8, >= 2.8.3)
+      json (>= 1.5.1)
     colorator (1.1.0)
     concurrent-ruby (1.1.9)
     em-websocket (0.5.3)
@@ -12,11 +18,13 @@ GEM
     eventmachine (1.2.7-x64-mingw32)
     fastimage (1.8.1)
       addressable (~> 2.3, >= 2.3.5)
-    ffi (1.15.4)
-    ffi (1.15.4-x64-mingw32)
+    ffi (1.15.5)
+    ffi (1.15.5-x64-mingw32)
+    filesize (0.2.0)
     forwardable-extended (2.6.0)
     hike (1.2.3)
     http_parser.rb (0.8.0)
+    httpclient (2.8.3)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jekyll (4.2.1)
@@ -34,6 +42,15 @@ GEM
       rouge (~> 3.0)
       safe_yaml (~> 1.0)
       terminal-table (~> 2.0)
+    jekyll-algolia (1.7.1)
+      algolia_html_extractor (~> 2.6)
+      algoliasearch (~> 1.26)
+      filesize (~> 0.1)
+      jekyll (>= 3.6, < 5.0)
+      json (~> 2.0)
+      nokogiri (~> 1.6)
+      progressbar (~> 1.9)
+      verbal_expressions (~> 0.1.5)
     jekyll-assets (1.0.0)
       fastimage (~> 1.6)
       jekyll (>= 2)
@@ -42,12 +59,17 @@ GEM
       sprockets (~> 2.10)
       sprockets-helpers
       sprockets-sass
-    jekyll-feed (0.15.1)
+    jekyll-feed (0.16.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-redirect-from (0.16.0)
+      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (2.1.0)
       sassc (> 2.0.1, < 3.0)
+    jekyll-sitemap (1.4.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
+    json (2.6.1)
     kramdown (2.3.1)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -59,15 +81,21 @@ GEM
     mercenary (0.4.0)
     mini_magick (4.11.0)
     multi_json (1.15.0)
+    nokogiri (1.13.0-x64-mingw32)
+      racc (~> 1.4)
+    nokogiri (1.13.0-x86_64-darwin)
+      racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+    progressbar (1.11.0)
     public_suffix (4.0.6)
+    racc (1.6.0)
     rack (1.6.13)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.5)
-    rouge (3.26.1)
+    rouge (3.27.0)
     safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -97,6 +125,7 @@ GEM
     tzinfo-data (1.2021.5)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.8.0)
+    verbal_expressions (0.1.5)
     wdm (0.1.1)
     webrick (1.7.0)
 
@@ -106,9 +135,13 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  algoliasearch
   jekyll
+  jekyll-algolia
   jekyll-assets (~> 1.0.0)
   jekyll-feed (~> 0.12)
+  jekyll-redirect-from
+  jekyll-sitemap
   kramdown
   rouge
   tzinfo (~> 1.2)
@@ -117,4 +150,4 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 BUNDLED WITH
-   2.2.32
+   2.3.4

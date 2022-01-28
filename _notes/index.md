@@ -2,7 +2,7 @@
 title: Notes Index
 description: Notes Index
 permalink: /notes/
-lastmod: '2021-12-08T16:13:36.015Z'
+lastmod: '2022-01-12T03:43:23.589Z'
 sidebar:
   nav: notes
   title: test
@@ -10,9 +10,7 @@ sidebar:
 
 # Quick Start
 
-https://www.bls.gov/oes/current/oes113021.htm#st
-
-## [Getting Started](/notes/getting-started)
+## Getting Started
 
 [Devops](https://docs.gitlab.com/ee/topics/autodevops/stages.html)
 
@@ -63,16 +61,12 @@ Set-LocalVar amr smells
 
 ```
 
-
-
-
-[Check-Get-PS-Profile.ps1]() 
-
 Navigate to Profile home directory
 
 ```powershell
 split-path $PROFILE | cd
 ```
+
 ### Download $Profile
 
 ```powershell
@@ -97,7 +91,9 @@ function Restart-Powershell {
 }
 
 ```
+
 restart  powershell function
+
 ```powershell
 function Restart-Powershell {
   Start-Process powershell
@@ -142,12 +138,12 @@ vscode://file/C:/Users/AmrAbdel-Motaleb/OneDrive/Documents/GitHub/{{ page.path}}
 
 ### Hover Notes
 
-![](../assets/images/hover-note.png)
+![](../assets/images/hover-note.png){: .img-fluid }
 
 ### Paste images in Markdown
 
 
-![](../assets/images/markdown_paste.gif)
+![](../assets/images/markdown_paste.gif){: .img-fluid }
 
 
 ### Autoscale images
@@ -195,3 +191,34 @@ kramdown: # https://kramdown.gettalong.org/options.html
 
 ### Add [Submodules](http://git-scm.com/book/en/v2/Git-Tools-Submodules) 
 
+## Keyboard shortcuts
+
+[MS WOrd](https://support.microsoft.com/en-us/office/keyboard-shortcuts-in-word-95ef89dd-7142-4b50-afb2-f762f663ceb2#bkmk_navigatewin)
+
+## Gallery
+
+```html
+![this is a caption](../assets/images/nubi-son.png){: .img-fluid }
+```
+
+adding `{: .img-fluid }` to a list of images will add it to the `<p>` tag.
+
+See _scss/it-journey/it-journey.scss
+
+```scss
+// Extends the CSS for .img-fluid to <img> tags inside a <p> tag
+
+p, img 
+  {
+    @extend .img-fluid;
+  }
+```
+
+### Examples
+
+![this is a caption](../assets/images/nubi-son.png)
+![Nubi in a sink](../assets/images/nubi-sink.png)
+![Nubi yawning](../assets/images/nubi-yawn.png){: .img-thumbnail }
+
+
+> this is a block quote

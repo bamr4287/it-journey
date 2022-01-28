@@ -1,4 +1,4 @@
-<!-- Nav List  -->
+<!-- nav_list.html  -->
 
 {% assign navigation = site.data.navigation[include.nav] %}
 
@@ -9,9 +9,7 @@
     {% endif %}
   {% endfor %}
 
-  <!-- Nav Toggle button in mobile view -->
-  <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+
   
   <ul class="nav__items list-unstyled mb-0 py-3 pt-md-1">
   <!-- Accordion Nav List -->
@@ -26,10 +24,10 @@
       {% endif %}
       {% if nav.sublinks %}
         <li class="mb-1">
-          <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{ nav.title }}-collapse" aria-expanded="false" aria-current="true">
+          <button class="btn d-inline-flex align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{ nav.title }}-collapse" aria-expanded="true" aria-current="true">
             {{ nav.title }}
           </button>
-          <div class="collapse" id="{{ nav.title }}-collapse" style="">
+          <div class="" id="{{ nav.title }}-collapse" style="">
             <ul class="list-unstyled fw-normal pb-1 small">
               {% for child in nav.sublinks %}
                 <li>

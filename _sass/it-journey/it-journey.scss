@@ -25,3 +25,17 @@
 // Custom
 @import "sidebar";
 @import "custom";
+@import "code";
+
+// Extends the Bootstrap blockquote-footer to main tag <blockquote>
+
+blockquote{
+    @extend .blockquote-footer;
+  }
+
+// Extends the CSS for .img-fluid to <img> tags inside a <p> tag
+
+p, img 
+  {
+    @extend .img-fluid;
+  }

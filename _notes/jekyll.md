@@ -1,7 +1,7 @@
 ---
-title: Jeykll Cheatsheet
+title: Jeykll
 permalink: /notes/jekyll/
-lastmod: '2021-12-05T18:40:17.875Z'
+lastmod: '2022-01-11T20:39:53.550Z'
 ---
 
 # Jeykll
@@ -387,4 +387,31 @@ Will convert an object or array into JSON.
 </ul>
 ```
 
+## Add Class or ID to markdown element
+
+https://boringrails.com/tips/jekyll-css-class
+
 {% endraw %}
+
+```liquid
+{% raw %}
+{{site.github.repository_url}}
+{% endraw %}
+```
+
+```html
+{%raw %}
+<div class="sidebar__top">
+  <a href="'''liquid{{site.github.repository_url}}'''/blob/gh-pages/{{page.name}}">
+    <i class="fab fa-github-square"></i>
+  </a>
+  <a href="vscode://file{{ site.local_git_pc}}/{{ site.local_repo }}/{{ page.path }}">
+    <i class="fas fa-laptop-code"></i>
+  </a>
+  <a href="vscode://file{{ site.local_git_mac}}/{{ site.local_repo }}/{{ page.path }}">
+    <i class="fas fa-laptop-code"></i>
+  </a>
+  <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+</div>
+{% endraw %}
+```

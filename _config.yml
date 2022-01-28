@@ -31,9 +31,9 @@ subtitle_url             : "127.0.0.1"
 masthead_title           : # override the default title
 title_separator          : "|" # Appears in the web browser tab name
 locale                   : "en-US"
-name                     : &name "Amr Abdel"
-email                    : amr.abdel@gmail.com
-description              : &description >- # this means to ignore newlines until "baseurl:"
+name                     : &name "Amr"
+email                    : bamr4287@gmail.com
+description              : &description >- # this means to ignore newlines until "url:"
   Scrolls and spells of IT magic.
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -42,15 +42,37 @@ url                      : "https://lifehacker.dev" # the base hostname & protoc
 baseurl                  : "" # the subpath of your site, e.g. /blog
 repository               : "bamr87/it-journey" # GitHub username/repo-name
 local_repo               : "it-journey"
-local_git_pc             : "C:/Users/AmrAbdel-Motaleb/OneDrive/Documents/GitHub/"
-local_git_mac            : "/Users/amr-mb/OneDrive/Documents/GitHub/"
+home_dir_pc              : &home-win 'C:\Users\amrab\'
+home_dir_mac             : &home-mac '/Users/amr/'
+local_git_pc             : [ *home-win, 'github\' ]
+local_git_mac            : [ *home-mac, 'GitHub/' ]
 teaser                   : /assets/images/teaser_default-500x300.png # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : /assets/images/great-lambda-pyramids-v1.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : /assets/images/gravatar-small.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
 port                     : 4002 # Jekyll Serve Dev port
 dg_port                  : "4001" # Doppelganger site
 
+# Identity
+
+author:
+  name             : *name # *name is a YAML reference pointing to the &anchor earlier
+  avatar           : "/assets/images/gravatar-small.png"
+  bio              : "IT nerd trying to be an IT hero"
+  location         : "Denver, CO"
+  links:
+    - label: "BASH Consulting"
+      icon: "fas fa-fw fa-link"
+      url: "https://bashconsultants.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/bamr87"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/bamr87"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/bamr42"
 
 twitter_username         : "bamr87"
 github_username          : "bamr87"
@@ -58,7 +80,11 @@ github_username          : "bamr87"
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
   - jekyll-assets
+  - jekyll-algolia
+  # - jekyll-postcss
+  # - jekyll-redirect-from
   
 # Conversion
 markdown: kramdown
@@ -81,6 +107,7 @@ kramdown: # https://kramdown.gettalong.org/options.html
 
 
 
+
 # Collections: https://jekyllrb.com/docs/collections/
   # Permalinks: https://jekyllrb.com/docs/permalinks/
 
@@ -92,6 +119,12 @@ collections:
     output: true
     permalink: /:collection/:path/
   quickstart:
+    output: true
+    permalink: /:collection/:path/
+  about:
+    output: true
+    permalink: /:collection/:path/
+  hobbies:
     output: true
     permalink: /:collection/:path/
 
@@ -155,6 +188,32 @@ defaults:
       sidebar:
         nav: quickstart
       permalink: /:categories/:title/
+  # _about
+  - scope:
+      path: "_about"
+      type: about
+    values:
+      layout: default
+      share: true
+      toc: true
+      author_profile: false
+      toc_sticky: true
+      sidebar:
+        nav: about
+      permalink: /:categories/:title/
+  # _hobbies
+  - scope:
+      path: "_hobbies"
+      type: hobbies
+    values:
+      layout: default
+      share: true
+      toc: true
+      author_profile: false
+      toc_sticky: true
+      sidebar:
+        nav: hobbies
+      permalink: /:categories/:title/
 
 permalink: /:categories/:title/
 
@@ -185,3 +244,38 @@ sass:
   sass_dir: _sass
   style: compressed
   
+
+# Footer Links Settings
+
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/bamr87"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/bamr87"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/bamr42"
+
+powered_by:
+  - name: "Jekyll"
+    url: "https://jekyllrb.com/"
+  - name: "Bootstrap"
+    url: "https://getbootstrap.com/"
+  - name: "Algolia"
+    url: "https://algolia.com/"
+  - name: "JQuery"
+    url: "https://jquery.com/"
+
+
+algolia:
+  application_id: '99CKJ6KQ3Z'
+  search_only_api_key: '03a0c530bc2ff9acfde23485092602f3'
+  index_name: dev_lifehacker
+
+exclude: [vendor]
+
+atom_feed:
+path                   : # blank (default) uses feed.xml

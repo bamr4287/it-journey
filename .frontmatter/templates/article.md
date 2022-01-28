@@ -1,11 +1,15 @@
 ---
 title: '{{name}}'
 author: null
-layout: default
+excerpt: null
 description: null
+snippet: null
 categories:
-    - Posts
-lastmod: '2021-12-05T18:23:29.243Z'
+    - posts
+tags:
+    - article
+meta: null
 draft: true
+lastmod: '2022-01-10T03:04:34.643Z'
 ---
 
